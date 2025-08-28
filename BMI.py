@@ -12,8 +12,8 @@ st.title("💪 Interactive BMI Visualizer ")
 st.write("This app calculates your **BMI** and shows it dynamically ")
 
 # User inputs
-weight = st.number_input("Enter your weight (kg)", step=0.5)
-height = st.number_input("Enter your height (cm)",  step=0.5)
+weight = st.number_input("Enter your weight (kg)")
+height = st.number_input("Enter your height (cm)")
 
 if st.button("Calculate BMI"):
     if height > 0:
