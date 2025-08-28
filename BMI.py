@@ -23,7 +23,9 @@ if st.button("Calculate BMI"):
         try:
             weight = float(weigh)
             height = float(heigh)
-        except ValueError:st.error(":warning: please enter numeric values")
+        except ValueError:
+            st.error(":warning: please enter numeric values")
+            st.stop()
 
     if height > 0:
         bmi = weight / ((height/100) ** 2)
