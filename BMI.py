@@ -6,16 +6,25 @@ import numpy as np
 
 #set page
 st.set_page_config(page_title="BMI Calaculator",page_icon="📊",layout="wide")
+
 # Title
 st.title("💪 Interactive BMI Visualizer ")
 
 st.write("This app calculates your **BMI** and shows it dynamically ")
 
 # User inputs
-weight = st.number_input("Enter your weight (kg)")
-height = st.number_input("Enter your height (cm)")
+weigh = st.text_input("Enter your weight (kg)",placeholder="eg.70")
+heigh = st.text_input("Enter your height (cm)",placeholder="eg.140")
 
 if st.button("Calculate BMI"):
+    if weigh.strip()=="" or heigh.strip()=="":
+        st.error(":warning: please enter both weight and height")
+    else:
+        try:
+            weight = float(weigh)
+            height = float(heigh)
+        except ValueError:st.error(":warning: please enter numeric values")
+
     if height > 0:
         bmi = weight / ((height/100) ** 2)
         st.success(f"Your BMI is: {bmi:.2f}")
